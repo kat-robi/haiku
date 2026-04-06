@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Late Morning</title>
 
+  <style>
+    body {
+      font-family: Georgia, serif;
+      text-align: center;
+      margin: 40px;
+      background-color: #f4f1ec;
+    }
+
+    .grid-layout {
+      display: grid;
+      gap: 12px;
+      max-width: 400px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #333;
+      background: white;
+    }
+
+    .exploded-layout {
+      position: relative;
+      height: 300px;
+      margin-top: 40px;
+    }
+
+    .exploded-layout span {
+      position: absolute;
+      font-size: 20px;
+      transition: all 0.8s ease;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: black;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>late morning</h1>
+
+  <!-- GRID -->
+  <div class="grid-layout">
+    <p>slept through my alarm</p>
+    <p>coffee’s cold on the counter now</p>
+    <p>toast never got made</p>
+  </div>
+
+  <!-- EXPLODED -->
+  <div class="exploded-layout" id="exploded">
+    <span>slept</span>
+    <span>through</span>
+    <span>my</span>
+    <span>alarm</span>
+    <span>coffee’s</span>
+    <span>cold</span>
+    <span>on</span>
+    <span>the</span>
+    <span>counter</span>
+    <span>now</span>
+    <span>toast</span>
+    <span>never</span>
+    <span>got</span>
+    <span>made</span>
+  </div>
+
+  <button onclick="explode()">explode it</button>
+
+  <script>
+    function explode() {
+      const words = document.querySelectorAll("#exploded span");
+
+      words.forEach(word => {
+        let x = Math.random() * 400 - 200;
+        let y = Math.random() * 200 - 100;
+        let rotate = Math.random() * 360;
+
+        word.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg)`;
+      });
+    }
+  </script>
+
+</body>
+</html>
